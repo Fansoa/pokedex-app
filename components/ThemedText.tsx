@@ -3,29 +3,30 @@ import { Text, type TextProps, StyleSheet } from 'react-native';
 import { useThemeColor } from '@/hooks/useThemeColor';
 
 export type ThemedTextProps = TextProps & {
-  lightColor?: string;
-  darkColor?: string;
-  type?: 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link';
+  type?: 'headline' | 'subtitle1' | 'subtitle2' | 'subtitle3' | 'body1' | 'body2' | 'body3' | 'caption';
+  color?: string | null
 };
 
 export function ThemedText({
   style,
-  lightColor,
-  darkColor,
-  type = 'default',
+  type,
+  color,
   ...rest
 }: ThemedTextProps) {
-  const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
+  const themeColor = useThemeColor();
 
   return (
     <Text
       style={[
-        { color },
-        type === 'default' ? styles.default : undefined,
-        type === 'title' ? styles.title : undefined,
-        type === 'defaultSemiBold' ? styles.defaultSemiBold : undefined,
-        type === 'subtitle' ? styles.subtitle : undefined,
-        type === 'link' ? styles.link : undefined,
+        { color: themeColor[color] || themeColor.grayWhite },
+        type === 'headline' ? styles.headline : undefined,
+        type === 'subtitle1' ? styles.subtitle1 : undefined,
+        type === 'subtitle2' ? styles.subtitle2 : undefined,
+        type === 'subtitle3' ? styles.subtitle3 : undefined,
+        type === 'body1' ? styles.body1 : undefined,
+        type === 'body2' ? styles.body2 : undefined,
+        type === 'body3' ? styles.body3 : undefined,
+        type === 'caption' ? styles.caption : undefined,
         style,
       ]}
       {...rest}
@@ -34,27 +35,40 @@ export function ThemedText({
 }
 
 const styles = StyleSheet.create({
-  default: {
-    fontSize: 16,
-    lineHeight: 24,
-  },
-  defaultSemiBold: {
-    fontSize: 16,
-    lineHeight: 24,
-    fontWeight: '600',
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: 'bold',
+  headline: {
+    fontSize: 24,
     lineHeight: 32,
+    fontWeight: 'bold'
   },
-  subtitle: {
-    fontSize: 20,
+  subtitle1: {
+    fontSize: 10,
+    lineHeight: 16,
     fontWeight: 'bold',
   },
-  link: {
-    lineHeight: 30,
-    fontSize: 16,
-    color: '#0a7ea4',
+  subtitle2: {
+    fontSize: 14,
+    lineHeight: 16,
+    fontWeight: 'bold',
+  },
+  subtitle3: {
+    fontSize: 12,
+    lineHeight: 16,
+    fontWeight: 'bold',
+  },
+  body1: {
+    fontSize: 14,
+    lineHeight: 16,
+  },
+  body2: {
+    fontSize: 12,
+    lineHeight: 16,
+  },
+  body3: {
+    fontSize: 10,
+    lineHeight: 16,
+  },
+  caption: {
+    fontSize: 8,
+    lineHeight: 12,
   },
 });
