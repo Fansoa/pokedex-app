@@ -18,7 +18,7 @@ export function ThemedText({
   return (
     <Text
       style={[
-        { color: themeColor[color] || themeColor.grayWhite },
+        { color: themeColor[color] || color || themeColor.grayWhite },
         type === 'headline' ? styles.headline : undefined,
         type === 'subtitle1' ? styles.subtitle1 : undefined,
         type === 'subtitle2' ? styles.subtitle2 : undefined,
