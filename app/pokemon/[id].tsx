@@ -1,16 +1,20 @@
 import { ThemedText } from "@/components/ThemedText"
-import { SafeAreaView } from "react-native"
+import { ActivityIndicator, SafeAreaView } from "react-native"
 import { useLocalSearchParams } from "expo-router"
 import { useFetchQuery } from "@/hooks/useFetchQuery"
+import { useThemeColor } from "@/hooks/useThemeColor"
 
 const PokemonDetailsScreen = () => {
     const { id } = useLocalSearchParams()
+    const themeColor = useThemeColor()
 
-    const { data } = useFetchQuery(`/pokemon/${id}`)
+    const { isFetching } = useFetchQuery(`/pokemon/${id}`)
 
     return (
         <SafeAreaView>
-            <ThemedText>PokemonDetailsScreen</ThemedText>
+            {
+                isFetching ? <ActivityIndicator color={themeColor.tint}/> : <ThemedText>PokemonDetailsScreen</ThemedText>
+            }
         </SafeAreaView>
     )
 }
