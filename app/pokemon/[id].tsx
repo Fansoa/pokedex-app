@@ -20,16 +20,28 @@ const PokemonDetailsScreen = () => {
 
     return (
         <SafeAreaView style={[styles.container, {backgroundColor: basePokemonColor }]}>
-            <View>
+            <View style={{flex: 1}}>
                 {
                     isFetching ? <ActivityIndicator color={themeColor.tint}/> : (
-                    <Row style={styles.header}>
-                        <Pressable onPress={handleBackButton}>
-                            <Image source={require('@/assets/images/arrow_back.png')}/>
-                        </Pressable>
-                        <ThemedText style={styles.pokemonName} type="headline">{data?.name}</ThemedText>
-                        <ThemedText type="subtitle2">#{id?.toString().padStart(3,'0')}</ThemedText>
-                    </Row>)
+                    <>
+                        <Row style={styles.header}>
+                            <Pressable onPress={handleBackButton}>
+                                <Image source={require('@/assets/images/arrow_back.png')}/>
+                            </Pressable>
+                            <ThemedText style={styles.pokemonName} type="headline">{data?.name}</ThemedText>
+                            <ThemedText type="subtitle2">#{id?.toString().padStart(3,'0')}</ThemedText>
+                        </Row>
+                        <View style={{height: 144, zIndex: 10}}>
+                            <Image
+                                source={{uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`}}
+                                style={{width: 200, height: 200, margin: 'auto'}}
+                            />
+                        </View>
+                        <View style={styles.body}>
+
+                        </View>
+                    </>
+                    )
                 }
                 <Image style={styles.backgroundImg} source={require('@/assets/images/big_pokeball.png')}/>
             </View>
@@ -40,6 +52,7 @@ const PokemonDetailsScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        padding: 4,
     },
     header: {
         justifyContent: 'space-between',
@@ -53,6 +66,11 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 8,
         right: 8,
+    },
+    body: {
+        flex: 1,
+        borderRadius: 4,
+        backgroundColor: 'white'
     }
 })
 
