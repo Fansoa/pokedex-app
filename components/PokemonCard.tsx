@@ -23,7 +23,7 @@ const PokemonCard = ({style, id, name}: Props) => {
                     source={{uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`}}
                     style={{width: 72, height: 72, margin: 'auto'}}
                 />
-                <ThemedText style={styles.footer} color="grayDark">{name}</ThemedText>
+                <ThemedText style={styles.footer} color="grayDark">{name.charAt(0).toUpperCase() + name.slice(1)}</ThemedText>
                 <View style={[styles.background, {backgroundColor: themeColor.graybackground}]}/>
             </Pressable>
         </Link>
@@ -59,7 +59,6 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.27,
         shadowRadius: 4.65,
-
         elevation: 6,
     }
 })
