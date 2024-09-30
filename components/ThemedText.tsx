@@ -18,7 +18,7 @@ export function ThemedText({
   return (
     <Text
       style={[
-        { color: themeColor[color] || themeColor.grayWhite },
+        { color: themeColor[color] || color || themeColor.grayWhite },
         type === 'headline' ? styles.headline : undefined,
         type === 'subtitle1' ? styles.subtitle1 : undefined,
         type === 'subtitle2' ? styles.subtitle2 : undefined,
@@ -41,30 +41,30 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   subtitle1: {
-    fontSize: 10,
+    fontSize: 18,
     lineHeight: 16,
     fontWeight: 'bold',
   },
   subtitle2: {
-    fontSize: 14,
+    fontSize: 16,
     lineHeight: 16,
     fontWeight: 'bold',
   },
   subtitle3: {
-    fontSize: 12,
+    fontSize: 14,
     lineHeight: 16,
     fontWeight: 'bold',
   },
   body1: {
-    fontSize: 14,
+    fontSize: 16,
     lineHeight: 16,
   },
   body2: {
-    fontSize: 12,
+    fontSize: 14,
     lineHeight: 16,
   },
   body3: {
-    fontSize: 10,
+    fontSize: 12,
     lineHeight: 16,
   },
   caption: {

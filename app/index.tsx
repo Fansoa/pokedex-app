@@ -15,7 +15,7 @@ export default function HomeScreen() {
   const [search, setSearch] = useState('')
   const [sortKey, setSortKey] = useState<"id" | "name">("id")
   const colors = useThemeColor()
-  const { data, isFetching, fetchNextPage, ...rest} = useInfiniteFetchQuery("/pokemon?limit=21")
+  const { data, isFetching, fetchNextPage } = useInfiniteFetchQuery("/pokemon?limit=21")
   const pokemonList = data?.pages.flatMap(page => page.results).map(r => ({name: r.name, id: getPokemonId(r.url)})) ?? []
   const filteredPokemonList = [...(search ? pokemonList.filter(p => p.name.includes(search.toLowerCase()) || p.id.toString() === search) : pokemonList).sort((a, b) => (a[sortKey] < b[sortKey]) ? -1 : 1)]
 
@@ -30,7 +30,7 @@ export default function HomeScreen() {
           Pokédex
         </ThemedText>
       </View>
-      <Row gap={16} marginHorizontal={12}>
+      <Row style={{gap:16, marginHorizontal: 12}}>
         <Searchbar value={search} onChange={setSearch}/>
         <SortButton value={sortKey} onChange={setSortKey}/>
       </Row>
