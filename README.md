@@ -14,6 +14,8 @@ Réalisation d'un application mobile qui consiste en un Pokédex.
 - Navigation
 - Requêtage de données
 - Stylisation dans un contexte React Native
+- Utilisation de la librairie Tanstack Query
+
 
 ## Lancer l'app
 1. Installer les dépendances
@@ -28,3 +30,9 @@ Réalisation d'un application mobile qui consiste en un Pokédex.
     npx expo start
    ```
 
+3. Installer l'application Expo go sur mobile
+
+4. Scanner le QR code dans le terminal
+
+
+__Le rendu de l'application sur un navigateur n'est pas à prendre compte, le visuel n'est correct que sur l'application Expo go__
