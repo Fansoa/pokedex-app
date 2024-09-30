@@ -3,7 +3,7 @@ import { StyleSheet, View, type ViewStyle } from "react-native";
 
 type Props = {
     children: ReactNode,
-    style: ViewStyle,
+    style?: ViewStyle,
 }
 
 const Row = ({children, style, ...rest}: Props) => {
