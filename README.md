@@ -36,3 +36,10 @@ Réalisation d'un application mobile qui consiste en un Pokédex.
 
 
 __Le rendu de l'application sur un navigateur n'est pas à prendre compte, le visuel n'est correct que sur l'application Expo go__
+
+## Screenshots
+![image](https://github.com/user-attachments/assets/cfa4a5e0-983a-4264-83b7-594fda1e43dd)
+![image](https://github.com/user-attachments/assets/6b0298a4-689e-42b0-bd1f-bf65fa7c8383)
+![image](https://github.com/user-attachments/assets/bfbc1d89-6a43-48f8-b1e8-b492d132bbc6)
+
+
